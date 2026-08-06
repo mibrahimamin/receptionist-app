@@ -88,7 +88,7 @@ export default function SignupPage() {
         </h1>
 
         <p className="text-sm text-inkLight mb-6">
-          Create your business dashboard and receptionist account.
+              Set up your business dashboard.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-3">
