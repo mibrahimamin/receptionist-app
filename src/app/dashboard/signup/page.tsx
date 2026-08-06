@@ -83,7 +83,7 @@ export default function SignupPage() {
       <div className="ledger-card p-8 w-full max-w-md">
         <span className="ledger-tab">Front Desk</span>
 
-        <h1 className="font-display text-2xl text-ink mb-1">
+        <h1 className="font-sans text-2xl text-ink mb-1">
           Create an account
         </h1>
 
