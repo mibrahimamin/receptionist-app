@@ -25,15 +25,17 @@ export const metadata: Metadata = {
 
   title: "Front Desk",
 
-  description: "A friendly digital receptionist: FAQs, contact capture, and appointment booking.",
+  description:
+
+    "A friendly digital receptionist: FAQs, contact capture, and appointment booking.",
 
   icons: {
 
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
 
-    shortcut: "/favicon.ico",
+    shortcut: "/favicon.png",
 
-    apple: "/favicon.ico",
+    apple: "/favicon.png",
 
   },
 
