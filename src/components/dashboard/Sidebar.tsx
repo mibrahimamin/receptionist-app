@@ -13,7 +13,19 @@ const LINKS = [
   { href: "/dashboard/settings", label: "Settings" },
 ];
 
-export default function Sidebar({ businessName }: { businessName: string }) {
+export default function Sidebar({
+
+  businessName,
+
+  businessSlug,
+
+}: {
+
+  businessName: string;
+
+  businessSlug: string;
+
+}){
   const pathname = usePathname();
   const router = useRouter();
 
@@ -63,16 +75,21 @@ export default function Sidebar({ businessName }: { businessName: string }) {
     </nav>
       <div className="p-5 mt-auto hidden sm:block border-t border-white/10 space-y-3">
 
-  <Link
+ <Link
 
-    href="/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center rounded-md border border-white/15 px-3 py-2 text-sm font-medium text-[#F5F5F7] hover:bg-[#2C2C2E] hover:border-[#C89A45] transition-colors"
-  >
-    View Front Desk ↗
-  </Link>
+  href={`/front-desk/${businessSlug}`}
 
+  target="_blank"
+
+  rel="noopener noreferrer"
+
+  className="flex items-center justify-center rounded-md border border-white/15 px-3 py-2 text-sm font-medium text-[#F5F5F7] hover:bg-[#2C2C2E] hover:border-[#C89A45] transition-colors"
+
+>
+
+  View Front Desk ↗
+
+</Link>
   <button
 
   onClick={handleLogout}

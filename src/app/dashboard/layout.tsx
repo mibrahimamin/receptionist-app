@@ -11,8 +11,16 @@ export default async function DashboardLayout({
   const business = await getCurrentBusiness();
 
   return (
-    <DashboardShell businessName={business.name}>
-      {children}
-    </DashboardShell>
+    <DashboardShell
+
+  businessName={business.name}
+
+  businessSlug={business.slug}
+
+>
+
+  {children}
+
+</DashboardShell>
   );
 }
