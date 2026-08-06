@@ -1,26 +1,19 @@
 import { getDashboardBusiness } from "@/lib/business";
 import DashboardShell from "@/components/dashboard/DashboardShell";
 
-export const dynamic = "force-dynamic";
-
 export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const business = await getCurrentBusiness();
+  const business = await getDashboardBusiness();
 
   return (
     <DashboardShell
-
-  businessName={business.name}
-
-  businessSlug={business.slug}
-
->
-
-  {children}
-
-</DashboardShell>
+      businessName={business.name}
+      businessSlug={business.slug}
+    >
+      {children}
+    </DashboardShell>
   );
 }
