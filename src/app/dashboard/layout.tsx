@@ -1,4 +1,4 @@
-import { getCurrentBusiness } from "@/lib/business";
+import { getDashboardBusiness } from "@/lib/business";
 import DashboardShell from "@/components/dashboard/DashboardShell";
 
 export const dynamic = "force-dynamic";

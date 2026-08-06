@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { supabaseServer } from "@/lib/supabase/server";
-import { getCurrentBusiness } from "@/lib/business";
+import { getBusinessBySlug } from "@/lib/business";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json().catch(() => null);
+
+    const slug =
+      typeof body?.slug === "string" ? body.slug.trim() : "";
 
     const name =
       typeof body?.name === "string" ? body.name.trim() : "";
@@ -17,6 +20,13 @@ export async function POST(request: NextRequest) {
 
     const message =
       typeof body?.message === "string" ? body.message.trim() : "";
+
+    if (!slug) {
+      return NextResponse.json(
+        { error: "Business information is missing." },
+        { status: 400 }
+      );
+    }
 
     if (!name) {
       return NextResponse.json(
@@ -35,7 +45,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const business = await getCurrentBusiness();
+    const business = await getBusinessBySlug(slug);
+
+    if (!business) {
+      return NextResponse.json(
+        { error: "Business not found." },
+        { status: 404 }
+      );
+    }
 
     const { data, error } = await supabaseServer
       .from("contacts")
@@ -55,7 +72,7 @@ export async function POST(request: NextRequest) {
       console.error("Contact insert failed:", error);
 
       return NextResponse.json(
-        { error: error.message },
+        { error: "Could not save your details. Please try again." },
         { status: 500 }
       );
     }
