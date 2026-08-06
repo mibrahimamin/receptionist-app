@@ -23,6 +23,11 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: "Front Desk",
+  icons: {
+
+    icon: "/favicon.ico",
+
+  },
   description: "A friendly digital receptionist: FAQs, contact capture, and appointment booking.",
 };
 
