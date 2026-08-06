@@ -31,11 +31,11 @@ export const metadata: Metadata = {
 
   icons: {
 
-    icon: "/favicon.ico",
+    icon: "/favicon.png",
 
-    shortcut: "/favicon.ico",
+    shortcut: "/favicon.png",
 
-    apple: "/favicon.ico",
+    apple: "/favicon.png",
 
   },
 
