@@ -22,23 +22,14 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-
   title: "Front Desk",
-
   description:
-
     "A friendly digital receptionist: FAQs, contact capture, and appointment booking.",
-
   icons: {
-
-  icon: "/favicon-v2.png",
-
-  shortcut: "/favicon-v2.png",
-
-  apple: "/favicon-v2.png",
-
-},
-
+    icon: "/favicon-v2.png",
+    shortcut: "/favicon-v2.png",
+    apple: "/favicon-v2.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
