@@ -2,6 +2,7 @@ import { getCurrentBusiness } from "@/lib/business";
 import { supabaseServer } from "@/lib/supabase/server";
 import ChatWidget from "@/components/chat/ChatWidget";
 import type { Faq, Service } from "@/lib/types";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -43,7 +44,18 @@ export default async function HomePage() {
 
         </p>
         </header>
+        <div className="flex justify-end mb-4">
 
+  <Link
+    href="/dashboard/login"
+    className="inline-flex items-center rounded-lg border border-ink/20 px-4 py-2 text-sm font-medium text-ink transition hover:bg-ink hover:text-paper"
+  >
+
+    Owner Login →
+
+  </Link>
+
+</div>
         <ChatWidget
           business={{ name: business.name, greeting: business.greeting, timezone: business.timezone }}
           services={(services || []) as Service[]}
