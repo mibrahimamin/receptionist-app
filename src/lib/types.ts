@@ -1,12 +1,27 @@
 export type Business = {
+
   id: string;
+
   slug: string;
+
   name: string;
+
   tagline: string;
+
   greeting: string;
+
   timezone: string;
+
+  phone: string | null;
+
+  email: string | null;
+
+  address: string | null;
+
   passcode_hash: string | null;
+
   slot_interval_minutes: number;
+
 };
 
 export type BusinessHour = {

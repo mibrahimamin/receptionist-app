@@ -1,4 +1,4 @@
-import { getCurrentBusiness } from "@/lib/business";
+import { getDashboardBusiness } from "@/lib/business";
 import { supabaseServer } from "@/lib/supabase/server";
 import { updateBusinessSettings, updateBusinessHour, updatePasscode } from "@/lib/actions";
 import type { BusinessHour } from "@/lib/types";
@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 const DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 export default async function SettingsPage() {
-  const business = await getCurrentBusiness();
+  const business = await getDashboardBusiness();
 
   const { data: hours } = await supabaseServer
     .from("business_hours")

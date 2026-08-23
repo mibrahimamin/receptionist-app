@@ -1,4 +1,4 @@
-import { getCurrentBusiness } from "@/lib/business";
+import { getDashboardBusiness } from "@/lib/business";
 import { supabaseServer } from "@/lib/supabase/server";
 import { upsertFaq, deleteFaq } from "@/lib/actions";
 import type { Faq } from "@/lib/types";
@@ -6,7 +6,7 @@ import type { Faq } from "@/lib/types";
 export const dynamic = "force-dynamic";
 
 export default async function FaqsPage() {
-  const business = await getCurrentBusiness();
+  const business = await getDashboardBusiness();
 
   const { data: faqs } = await supabaseServer
     .from("faqs")

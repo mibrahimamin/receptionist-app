@@ -29,15 +29,24 @@ function LoginForm() {
     setSubmitting(true);
     setError(null);
 
+    
+
     const { error } = await supabase.auth.signInWithPassword({
-      email,
-      password,
+
+    email,
+
+    password,
+
     });
 
     if (error) {
-      setError(error.message);
-      setSubmitting(false);
-      return;
+
+    setError("Incorrect email or password. Please try again.");
+
+    setSubmitting(false);
+
+    return;
+
     }
 
     if (rememberMe) {

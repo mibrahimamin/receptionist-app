@@ -13,12 +13,31 @@ type PageProps = {
 };
 
 export default async function FrontDeskPage({ params }: PageProps) {
+
   const { slug } = await params;
 
   const business = await getBusinessBySlug(slug);
 
+  console.log("FRONT DESK BUSINESS:", {
+
+    id: business?.id,
+
+    slug: business?.slug,
+
+    name: business?.name,
+
+    phone: business?.phone,
+
+    email: business?.email,
+
+    address: business?.address,
+
+  });
+
   if (!business) {
+
     notFound();
+
   }
 
   const [{ data: services }, { data: faqs }] = await Promise.all([
@@ -37,6 +56,11 @@ export default async function FrontDeskPage({ params }: PageProps) {
       .limit(10),
   ]);
 
+  const hasContactInfo =
+    business.phone ||
+    business.email ||
+    business.address;
+
   return (
     <main className="min-h-screen flex flex-col items-center px-4 py-10 sm:py-16">
       <div className="w-full max-w-2xl">
@@ -49,10 +73,47 @@ export default async function FrontDeskPage({ params }: PageProps) {
             {business.name}
           </h1>
 
-          <p className="text-inkLight text-lg italic font-sans">
-            {business.tagline}
-          </p>
+          {business.tagline && (
+            <p className="text-inkLight text-lg italic font-sans">
+              {business.tagline}
+            </p>
+          )}
         </header>
+
+        {hasContactInfo && (
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
+            {business.phone && (
+              <a
+                href={`tel:${business.phone}`}
+                className="stamp-btn"
+              >
+                Call
+              </a>
+            )}
+
+            {business.email && (
+              <a
+                href={`mailto:${business.email}`}
+                className="stamp-btn"
+              >
+                Email
+              </a>
+            )}
+
+            {business.address && (
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                  business.address
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="stamp-btn"
+              >
+                Directions
+              </a>
+            )}
+          </div>
+        )}
 
         <ChatWidget
           business={{

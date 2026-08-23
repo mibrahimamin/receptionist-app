@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getCurrentBusiness } from "@/lib/business";
+import { getDashboardBusiness } from "@/lib/business";
 import { verifyPasscode } from "@/lib/passcode";
 import { createSessionCookieValue, SESSION_COOKIE_NAME, SESSION_MAX_AGE_SECONDS } from "@/lib/session";
 
@@ -11,8 +11,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Enter the passcode." }, { status: 400 });
   }
 
-  const business = await getCurrentBusiness();
-
+const business = await getDashboardBusiness();
   if (!business.passcode_hash) {
     return NextResponse.json(
       { error: "No passcode has been set up yet. See README.md for setup." },
