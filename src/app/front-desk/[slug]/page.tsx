@@ -18,21 +18,7 @@ export default async function FrontDeskPage({ params }: PageProps) {
 
   const business = await getBusinessBySlug(slug);
 
-  console.log("FRONT DESK BUSINESS:", {
-
-    id: business?.id,
-
-    slug: business?.slug,
-
-    name: business?.name,
-
-    phone: business?.phone,
-
-    email: business?.email,
-
-    address: business?.address,
-
-  });
+  
 
   if (!business) {
 
@@ -115,15 +101,17 @@ export default async function FrontDeskPage({ params }: PageProps) {
           </div>
         )}
 
-        <ChatWidget
-          business={{
-            name: business.name,
-            greeting: business.greeting,
-            timezone: business.timezone,
-          }}
-          services={(services ?? []) as Service[]}
-          faqs={(faqs ?? []) as Faq[]}
-        />
+       <ChatWidget
+  business={{
+    id: business.id,
+    slug: business.slug,
+    name: business.name,
+    greeting: business.greeting,
+    timezone: business.timezone,
+  }}
+  services={(services ?? []) as Service[]}
+  faqs={(faqs ?? []) as Faq[]}
+/>
 
         <p className="text-center text-xs text-inkLight/70 mt-8 font-sans">
           © {new Date().getFullYear()} {business.name}. All rights reserved.
