@@ -67,39 +67,35 @@ export default async function FrontDeskPage({ params }: PageProps) {
         </header>
 
         {hasContactInfo && (
-          <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
-            {business.phone && (
-              <a
-                href={`tel:${business.phone}`}
-                className="stamp-btn"
-              >
-                Call
-              </a>
-            )}
+  <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
+    {business.phone && (
+      <a
+        href={`/front-desk/${business.slug}/contact/phone`}
+        className="stamp-btn"
+      >
+        Call
+      </a>
+    )}
 
-            {business.email && (
-              <a
-                href={`mailto:${business.email}`}
-                className="stamp-btn"
-              >
-                Email
-              </a>
-            )}
+    {business.email && (
+      <a
+        href={`/front-desk/${business.slug}/contact/email`}
+        className="stamp-btn"
+      >
+        Email
+      </a>
+    )}
 
-            {business.address && (
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  business.address
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="stamp-btn"
-              >
-                Directions
-              </a>
-            )}
-          </div>
-        )}
+    {business.address && (
+      <a
+        href={`/front-desk/${business.slug}/contact/directions`}
+        className="stamp-btn"
+      >
+        Directions
+      </a>
+    )}
+  </div>
+)}
 
        <ChatWidget
   business={{

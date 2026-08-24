@@ -171,9 +171,11 @@ export default function ChatWidget({
 
         {panel === "contact" && (
           <ContactForm
-            onSubmitted={handleContactSubmitted}
-            onBack={() => setPanel("menu")}
-          />
+  businessId={business.id}
+  businessSlug={business.slug}
+  onSubmitted={handleContactSubmitted}
+  onBack={() => setPanel("menu")}
+/>
         )}
 
         {panel === "booking" && (

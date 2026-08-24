@@ -6,22 +6,32 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json().catch(() => null);
 
-    const slug =
-      typeof body?.slug === "string" ? body.slug.trim() : "";
+    const businessSlug =
+      typeof body?.businessSlug === "string"
+        ? body.businessSlug.trim()
+        : "";
 
     const name =
-      typeof body?.name === "string" ? body.name.trim() : "";
+      typeof body?.name === "string"
+        ? body.name.trim()
+        : "";
 
     const email =
-      typeof body?.email === "string" ? body.email.trim() : "";
+      typeof body?.email === "string"
+        ? body.email.trim()
+        : "";
 
     const phone =
-      typeof body?.phone === "string" ? body.phone.trim() : "";
+      typeof body?.phone === "string"
+        ? body.phone.trim()
+        : "";
 
     const message =
-      typeof body?.message === "string" ? body.message.trim() : "";
+      typeof body?.message === "string"
+        ? body.message.trim()
+        : "";
 
-    if (!slug) {
+    if (!businessSlug) {
       return NextResponse.json(
         { error: "Business information is missing." },
         { status: 400 }
@@ -45,7 +55,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const business = await getBusinessBySlug(slug);
+    const business = await getBusinessBySlug(businessSlug);
 
     if (!business) {
       return NextResponse.json(
