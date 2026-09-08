@@ -5,9 +5,7 @@ collects contact details, books appointments against real availability, and
 gives you a dashboard to manage all of it.
 
 Built with **Next.js 14 (App Router, TypeScript)** and **Supabase** (Postgres
-+ RLS). No AI/LLM calls — FAQ matching is keyword-based and free to run. The
-dashboard is protected by a single shared passcode rather than full user
-accounts, since it's designed for a single business owner/team.
++ RLS). — FAQ matching is keyword-based and free to run. 
 
 ## Features
 
