@@ -4,7 +4,7 @@ A small front desk for your business: it greets visitors, answers FAQs,
 collects contact details, books appointments against real availability, and
 gives you a dashboard to manage all of it.
 
-Built with **Next.js 14 (App Router, TypeScript)** and **Supabase** (Postgres + RLS). — FAQ matching is keyword-based and free to run. 
+Built with **Next.js 14 (App Router, TypeScript)** and **Supabase** (Postgres + RLS), FAQ matching is keyword-based and free to run. 
 
 ## Features
 
